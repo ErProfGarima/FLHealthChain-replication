@@ -1,0 +1,80 @@
+[
+  {
+    "all_valid": true,
+    "diff_key_unlinked": true,
+    "reps": 30,
+    "ring": 5,
+    "same_key_linked": true,
+    "sig_bytes": 225,
+    "sign_ms": 3.6375666666666664,
+    "sign_sd": 0.39210815567535245,
+    "tamper_rejected": true,
+    "verify_ms": 3.9036333333333326,
+    "verify_sd": 0.3414669654677406
+  },
+  {
+    "all_valid": true,
+    "diff_key_unlinked": true,
+    "reps": 30,
+    "ring": 10,
+    "same_key_linked": true,
+    "sig_bytes": 385,
+    "sign_ms": 6.836833333333333,
+    "sign_sd": 1.0207286134418152,
+    "tamper_rejected": true,
+    "verify_ms": 7.192533333333335,
+    "verify_sd": 0.9599981226035283
+  },
+  {
+    "all_valid": true,
+    "diff_key_unlinked": true,
+    "reps": 30,
+    "ring": 15,
+    "same_key_linked": true,
+    "sig_bytes": 545,
+    "sign_ms": 11.141066666666664,
+    "sign_sd": 1.2296211901493759,
+    "tamper_rejected": true,
+    "verify_ms": 11.413733333333333,
+    "verify_sd": 1.5172350063084545
+  },
+  {
+    "all_valid": true,
+    "diff_key_unlinked": true,
+    "reps": 30,
+    "ring": 20,
+    "same_key_linked": true,
+    "sig_bytes": 705,
+    "sign_ms": 14.57316666666667,
+    "sign_sd": 2.224709560018292,
+    "tamper_rejected": true,
+    "verify_ms": 14.17423333333333,
+    "verify_sd": 1.6055608469732103
+  },
+  {
+    "all_valid": true,
+    "diff_key_unlinked": true,
+    "reps": 30,
+    "ring": 25,
+    "same_key_linked": true,
+    "sig_bytes": 865,
+    "sign_ms": 17.3638,
+    "sign_sd": 1.894403707475403,
+    "tamper_rejected": true,
+    "verify_ms": 17.487466666666663,
+    "verify_sd": 1.9364189617441514
+  },
+  {
+    "all_valid": true,
+    "diff_key_unlinked": true,
+    "reps": 30,
+    "ring": 30,
+    "same_key_linked": true,
+    "sig_bytes": 1025,
+    "sign_ms": 23.181899999999995,
+    "sign_sd": 1.7982412547666755,
+    "tamper_rejected": true,
+    "verify_ms": 22.912699999999997,
+    "verify_sd": 2.318926388773849
+  }
+]

@@ -1,0 +1,55 @@
+{
+ "update_env_bytes": 7491.909090909091,
+ "update_args_bytes": 1288,
+ "blocks": [
+  {
+   "block": 4132,
+   "n": 5,
+   "bytes": 37898,
+   "args": 1288.0
+  },
+  {
+   "block": 4131,
+   "n": 1,
+   "bytes": 7912,
+   "args": 1288.0
+  },
+  {
+   "block": 4130,
+   "n": 2,
+   "bytes": 15393,
+   "args": 1288.0
+  },
+  {
+   "block": 4129,
+   "n": 2,
+   "bytes": 15399,
+   "args": 1288.0
+  },
+  {
+   "block": 4128,
+   "n": 6,
+   "bytes": 45371,
+   "args": 1288.0
+  },
+  {
+   "block": 4127,
+   "n": 3,
+   "bytes": 22886,
+   "args": 1288.0
+  },
+  {
+   "block": 4126,
+   "n": 1,
+   "bytes": 7914,
+   "args": 1288.0
+  },
+  {
+   "block": 4125,
+   "n": 12,
+   "bytes": 90325,
+   "args": 1288.0
+  }
+ ],
+ "method": "marginal block-size increase per SubmitUpdate transaction (blocks 4125 vs 4126), excludes per-block metadata"
+}

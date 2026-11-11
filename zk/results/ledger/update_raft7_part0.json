@@ -1,0 +1,15 @@
+{
+ "channel": "raft7",
+ "concurrency": 50,
+ "elapsed_s": 17.21076642,
+ "errors": {},
+ "fail": 0,
+ "lat_mean_ms": 1837.7119983577777,
+ "lat_p50_ms": 1868.820154,
+ "lat_p95_ms": 2455.840959,
+ "lat_p99_ms": 2544.601215,
+ "mode": "update",
+ "n": 450,
+ "ok": 450,
+ "tps": 26.146424221821494
+}

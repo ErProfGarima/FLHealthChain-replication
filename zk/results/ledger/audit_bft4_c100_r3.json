@@ -1,0 +1,17 @@
+{
+ "channel": "bft4",
+ "concurrency": 100,
+ "elapsed_s": 20.610393839,
+ "errors": {
+  "rpc error: code = Unavailable desc = insufficient number of orderers could successfully process transaction to satisfy q": 3
+ },
+ "fail": 3,
+ "lat_mean_ms": 1019.8560587000495,
+ "lat_p50_ms": 936.2943740000001,
+ "lat_p95_ms": 1813.643608,
+ "lat_p99_ms": 2119.070393,
+ "mode": "audit",
+ "n": 2000,
+ "ok": 1997,
+ "tps": 96.89285976773421
+}
