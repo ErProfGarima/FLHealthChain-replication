@@ -1,0 +1,52 @@
+OrdererOrgs:
+  - Name: Orderer
+    Domain: orderer.flhc
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: o0
+        SANS: [localhost, 127.0.0.1]
+      - Hostname: o1
+        SANS: [localhost, 127.0.0.1]
+      - Hostname: o2
+        SANS: [localhost, 127.0.0.1]
+      - Hostname: o3
+        SANS: [localhost, 127.0.0.1]
+      - Hostname: o4
+        SANS: [localhost, 127.0.0.1]
+      - Hostname: o5
+        SANS: [localhost, 127.0.0.1]
+      - Hostname: o6
+        SANS: [localhost, 127.0.0.1]
+PeerOrgs:
+  - Name: Hosp1
+    Domain: hosp1.flhc
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: peer0
+        SANS: [localhost, 127.0.0.1]
+    Users:
+      Count: 1
+  - Name: Hosp2
+    Domain: hosp2.flhc
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: peer0
+        SANS: [localhost, 127.0.0.1]
+    Users:
+      Count: 1
+  - Name: Hosp3
+    Domain: hosp3.flhc
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: peer0
+        SANS: [localhost, 127.0.0.1]
+    Users:
+      Count: 1
+  - Name: Hosp4
+    Domain: hosp4.flhc
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: peer0
+        SANS: [localhost, 127.0.0.1]
+    Users:
+      Count: 1

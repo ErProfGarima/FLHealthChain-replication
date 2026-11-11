@@ -1,0 +1,26 @@
+#!/bin/bash
+# usage: start_orderers.sh N
+N=${1:-4}
+B=/home/claude/flhc/dl/fabric
+R=/home/claude/flhc/net/crypto/ordererOrganizations/orderer.flhc
+mkdir -p logs data
+for i in $(seq 0 $((N-1))); do
+  P=$((7050+10*i)); A=$((P+1)); O=$((P+2)); D=$R/orderers/o$i.orderer.flhc
+  env FABRIC_CFG_PATH=$B/config \
+  ORDERER_GENERAL_LISTENADDRESS=127.0.0.1 ORDERER_GENERAL_LISTENPORT=$P \
+  ORDERER_GENERAL_LOCALMSPID=OrdererMSP ORDERER_GENERAL_LOCALMSPDIR=$D/msp \
+  ORDERER_GENERAL_TLS_ENABLED=true ORDERER_GENERAL_TLS_PRIVATEKEY=$D/tls/server.key \
+  ORDERER_GENERAL_TLS_CERTIFICATE=$D/tls/server.crt ORDERER_GENERAL_TLS_ROOTCAS=[$D/tls/ca.crt] \
+  ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=$D/tls/server.crt ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=$D/tls/server.key \
+  ORDERER_GENERAL_CLUSTER_ROOTCAS=[$D/tls/ca.crt] \
+  ORDERER_GENERAL_BOOTSTRAPMETHOD=none ORDERER_CHANNELPARTICIPATION_ENABLED=true \
+  ORDERER_ADMIN_LISTENADDRESS=127.0.0.1:$A ORDERER_ADMIN_TLS_ENABLED=true \
+  ORDERER_ADMIN_TLS_PRIVATEKEY=$D/tls/server.key ORDERER_ADMIN_TLS_CERTIFICATE=$D/tls/server.crt \
+  ORDERER_ADMIN_TLS_ROOTCAS=[$D/tls/ca.crt] ORDERER_ADMIN_TLS_CLIENTAUTHREQUIRED=true \
+  ORDERER_ADMIN_TLS_CLIENTROOTCAS=[$D/tls/ca.crt] \
+  ORDERER_FILELEDGER_LOCATION=$PWD/data/o$i/ledger ORDERER_CONSENSUS_WALDIR=$PWD/data/o$i/wal \
+  ORDERER_CONSENSUS_SNAPDIR=$PWD/data/o$i/snap ORDERER_OPERATIONS_LISTENADDRESS=127.0.0.1:$O \
+  ORDERER_METRICS_PROVIDER=prometheus FABRIC_LOGGING_SPEC=warn \
+  setsid nohup $B/bin/orderer > logs/o$i.log 2>&1 &
+done
+sleep 3
