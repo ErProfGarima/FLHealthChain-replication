@@ -1,0 +1,15 @@
+{
+ "channel": "raft4",
+ "concurrency": 50,
+ "elapsed_s": 29.526860598,
+ "errors": {},
+ "fail": 0,
+ "lat_mean_ms": 737.5726404234996,
+ "lat_p50_ms": 737.993699,
+ "lat_p95_ms": 883.426804,
+ "lat_p99_ms": 956.905806,
+ "mode": "audit",
+ "n": 2000,
+ "ok": 2000,
+ "tps": 67.73493556356851
+}

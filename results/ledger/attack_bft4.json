@@ -1,0 +1,26 @@
+{
+ "duplicate_key_image": [
+  40,
+  0
+ ],
+ "outsider_signer": [
+  40,
+  0
+ ],
+ "proof_replay_other_round": [
+  40,
+  0
+ ],
+ "tampered_signature": [
+  40,
+  0
+ ],
+ "valid_first_submission": [
+  40,
+  0
+ ],
+ "wrong_commitment": [
+  40,
+  0
+ ]
+}

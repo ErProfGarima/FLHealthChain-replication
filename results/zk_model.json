@@ -1,0 +1,31 @@
+{
+  "commit_ms": 3.1904931,
+  "compile_s": 2.41888232,
+  "constraints": 82502,
+  "cpus": 2,
+  "n_params": 3090,
+  "over_norm_update_rejected": true,
+  "proof_bytes_compressed": 196,
+  "proof_bytes_uncompressed": 388,
+  "prove_s_all": [
+    2.224252713,
+    2.446731352,
+    2.166995064,
+    2.067190153,
+    2.143514343,
+    2.140329293,
+    2.006427018,
+    2.162781973,
+    2.330949524,
+    2.410191364
+  ],
+  "prove_s_mean": 2.2099362797,
+  "prove_s_median": 2.166995064,
+  "prove_s_sd": 0.14381320052844906,
+  "public_inputs": 3,
+  "reps": 10,
+  "setup_s": 23.20618229,
+  "verify_ms_mean": 2.0164272,
+  "verify_ms_sd": 0.33248857731483705,
+  "vk_bytes": 592
+}
