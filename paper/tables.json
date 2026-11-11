@@ -1,0 +1,151 @@
+{
+ "TABLE4": [
+  "Table 4: Privacy\u2013utility results with 20 hospitals and T = 20 rounds (mean \u00b1 SD over 5 seeds). \u03b5 is the record-level budget at \u03b4 = 10\u207b\u2075 computed by the RDP accountant for each hospital; the column shows the largest value over hospitals.",
+  [
+   "| Setting | \u03b5 (max over hospitals) | Noise multiplier \u03c3\u1d62 (min\u2013max) | AUROC | AUPRC | Brier score | Accuracy @0.5 |",
+   "|---|---|---|---|---|---|---|",
+   "| Centralised, non-private (pooled data) | \u221e | \u2014 | 0.715 \u00b1 0.020 | 0.253 \u00b1 0.027 | 0.054 \u00b1 0.001 | 0.939 \u00b1 0.001 |",
+   "| Local-only (each hospital alone, mean of 20) | \u221e | \u2014 | 0.549 \u00b1 0.026 | \u2014 | \u2014 | \u2014 |",
+   "| FLHealthChain, \u03b5 target 0.5 | 0.50 | 7.55\u201322.66 | 0.538 \u00b1 0.023 | 0.077 \u00b1 0.012 | 0.061 \u00b1 0.000 | 0.938 \u00b1 0.000 |",
+   "| FLHealthChain, \u03b5 target 1.0 | 1.00 | 4.07\u201312.05 | 0.543 \u00b1 0.021 | 0.078 \u00b1 0.012 | 0.061 \u00b1 0.000 | 0.938 \u00b1 0.000 |",
+   "| FLHealthChain, \u03b5 target 2.0 | 2.00 | 2.28\u20136.49 | 0.548 \u00b1 0.020 | 0.080 \u00b1 0.012 | 0.062 \u00b1 0.000 | 0.938 \u00b1 0.000 |",
+   "| FLHealthChain, \u03b5 target 4.0 | 4.00 | 1.39\u20133.59 | 0.555 \u00b1 0.020 | 0.083 \u00b1 0.012 | 0.062 \u00b1 0.000 | 0.938 \u00b1 0.000 |",
+   "| FLHealthChain, \u03b5 target 8.0 | 8.00 | 0.95\u20132.07 | 0.562 \u00b1 0.018 | 0.087 \u00b1 0.014 | 0.062 \u00b1 0.000 | 0.938 \u00b1 0.000 |",
+   "| FLHealthChain, \u03b5 target 16.0 | 16.00 | 0.70\u20131.26 | 0.569 \u00b1 0.016 | 0.092 \u00b1 0.015 | 0.062 \u00b1 0.000 | 0.938 \u00b1 0.000 |",
+   "| FLHealthChain, \u03b5 target 64.0 | 64.00 | 0.44\u20130.59 | 0.581 \u00b1 0.012 | 0.099 \u00b1 0.017 | 0.062 \u00b1 0.000 | 0.938 \u00b1 0.000 |",
+   "| FLHealthChain, \u03b5 target \u221e | \u221e | 0 | 0.684 \u00b1 0.017 | 0.198 \u00b1 0.008 | 0.056 \u00b1 0.000 | 0.938 \u00b1 0.000 |"
+  ]
+ ],
+ "TABLE5": [
+  "Table 5: Effect of the number of hospitals with the total data fixed (mean \u00b1 SD over 5 seeds).",
+  [
+   "| Hospitals K | Mean training records per hospital | \u03c3\u1d62 at \u03b5 = 1 (min\u2013max) | AUROC, \u03b5 = 1 | AUROC, non-private |",
+   "|---|---|---|---|---|",
+   "| 5 | 1535 | 2.59\u20136.84 | 0.559 \u00b1 0.012 | 0.715 \u00b1 0.015 |",
+   "| 10 | 768 | 3.40\u201311.19 | 0.544 \u00b1 0.016 | 0.698 \u00b1 0.019 |",
+   "| 20 | 384 | 4.07\u201312.05 | 0.543 \u00b1 0.021 | 0.684 \u00b1 0.017 |",
+   "| 30 | 256 | 5.33\u201316.50 | 0.532 \u00b1 0.025 | 0.657 \u00b1 0.016 |"
+  ]
+ ],
+ "TABLE6": [
+  "Table 6: Unweighted versus size-weighted aggregation (mean \u00b1 SD over 5 seeds).",
+  [
+   "| Aggregation | AUROC, \u03b5 = 1 | AUROC, non-private |",
+   "|---|---|---|",
+   "| Unweighted FedAvg (FLHealthChain, Eq. 8) | 0.543 \u00b1 0.021 | 0.684 \u00b1 0.017 |",
+   "| Size-weighted FedAvg (requires knowing each hospital's m\u1d62) | 0.549 \u00b1 0.021 | 0.693 \u00b1 0.018 |"
+  ]
+ ],
+ "TABLE7": [
+  "Table 7: Measured cost of the cryptographic layer (Go, gnark v0.13, 2 vCPU).",
+  [
+   "| Component | Quantity | Measured value |",
+   "|---|---|---|",
+   "| Groth16 update circuit (3,090 parameters) | R1CS constraints | 82,502 |",
+   "| | Proving time (2 vCPU, 10 runs) | 2.21 \u00b1 0.14 s |",
+   "| | Verification time | 2.02 \u00b1 0.33 ms |",
+   "| | Proof size (compressed / uncompressed) | 196 B / 388 B |",
+   "| | Verifying key size | 592 B |",
+   "| | One-time circuit setup | 23 s |",
+   "| | Over-norm (2S) update proved? | No (prover fails) |",
+   "| Groth16, 14,530 parameters (earlier 47\u2192128\u219264\u21922 model) | Constraints / proving time | 380,249 / 8.0 \u00b1 0.3 s |",
+   "| MiMC commitment recomputation (aggregator) | Time per update | 3.2 ms |",
+   "| LSAG, ring of 20 (secp256k1) | Sign / verify | 14.6 \u00b1 2.2 ms / 14.2 \u00b1 1.6 ms |",
+   "| | Signature size | 705 B |",
+   "| | Tamper rejected / same-key linked / different keys unlinked | yes / yes / yes (30 of 30 runs) |"
+  ]
+ ],
+ "TABLE8": [
+  "Table 8: Ledger performance on a live Fabric 3.1.1 network (4 orderers, 4 peers, MAJORITY endorsement, single 2-vCPU host). Anchor: 2,000 transactions per run; verified update: 450 transactions per run, each verified with Groth16 and LSAG by three endorsing peers.",
+  [
+   "| Channel (consensus) | Workload | Workers | Runs | Committed TPS | Median latency (ms) | p95 latency (ms) | Failed |",
+   "|---|---|---|---|---|---|---|---|",
+   "| BFT (SmartBFT) | anchor | 10 | 3 | 65.5 \u00b1 1.6 | 149 | 236 | 0 |",
+   "| BFT (SmartBFT) | anchor | 50 | 3 | 84.4 \u00b1 3.9 | 547 | 1078 | 13 |",
+   "| BFT (SmartBFT) | anchor | 100 | 3 | 92.4 \u00b1 6.1 | 1014 | 1781 | 31 |",
+   "| BFT (SmartBFT) | anchor | 200 | 3 | 100.4 \u00b1 2.3 | 1885 | 3113 | 12 |",
+   "| CFT (Raft) | anchor | 10 | 3 | 17.6 \u00b1 0.1 | 570 | 606 | 0 |",
+   "| CFT (Raft) | anchor | 50 | 3 | 68.8 \u00b1 1.1 | 728 | 870 | 0 |",
+   "| CFT (Raft) | anchor | 100 | 3 | 110.6 \u00b1 3.4 | 907 | 1134 | 0 |",
+   "| CFT (Raft) | anchor | 200 | 3 | 150.4 \u00b1 5.0 | 1299 | 1713 | 0 |",
+   "| BFT (SmartBFT) | verified update | 50 | 4 | 20.5 \u00b1 1.0 | 2417 | 3512 | 0 |",
+   "| CFT (Raft) | verified update | 50 | 4 | 27.7 \u00b1 1.3 | 1804 | 2279 | 0 |"
+  ]
+ ],
+ "TABLE10": [
+  "Table 10: Adversarial submissions to the live BFT channel.",
+  [
+   "| Submitted transaction | Count | Expected outcome | Outcome as expected |",
+   "|---|---|---|---|",
+   "| Proof with mismatched commitment | 40 | rejected | 40 / 40 |",
+   "| Proof replayed under another round number | 40 | rejected | 40 / 40 |",
+   "| Ring signature with one flipped byte | 40 | rejected | 40 / 40 |",
+   "| Signer key outside the registered ring | 40 | rejected | 40 / 40 |",
+   "| Valid submission (control) | 40 | accepted | 40 / 40 |",
+   "| Second submission, same key image and round | 40 | rejected | 40 / 40 |"
+  ]
+ ],
+ "TABLE9": [
+  "Table 9: Critical-path latency of one federated round (hospitals train and prove in parallel).",
+  [
+   "| Step (per round, critical path) | Time | Share |",
+   "|---|---|---|",
+   "| Local DP-SGD training (one epoch, mean hospital) | 0.070 s | 2.1% |",
+   "| Clip, quantise, commit (MiMC) | 0.003 s | 0.1% |",
+   "| Groth16 proof generation | 2.210 s | 67.6% |",
+   "| LSAG signing (n = 20) | 0.015 s | 0.4% |",
+   "| Commit all 20 SubmitUpdate transactions of the round (endorse with \u03c0, \u03c3 verification, order, validate) | 0.910 s | 27.8% |",
+   "| Fetch 20 updates and recompute commitments | 0.064 s | 2.0% |",
+   "| **Total** | **3.27 s** | 100% |"
+  ]
+ ],
+ "TABLE1": [
+  "Table 1: Comparative analysis of blockchain-based healthcare frameworks",
+  [
+   "| System | Blockchain type | Privacy technique | Verifiable updates | Scalability | Interoperability | Key weakness |",
+   "|---|---|---|---|---|---|---|",
+   "| MedRec [4] | Permissioned Ethereum | Basic encryption | No | Off-chain storage | Intra-hospital | Metadata exposure; poor scalability |",
+   "| FHIRChain [3] | Public Ethereum | Token-based authorisation | No | Lightweight tokens | HL7 FHIR (partial) | No privacy primitives |",
+   "| Patientory [5] | Private chain | Encrypted storage | No | Transaction batching | API-based | High cost; limited compatibility |",
+   "| OmniPHR [11] | Distributed PHR | Attribute-based encryption | No | Off-chain health data | Standardised PHR model | Access-management overhead |",
+   "| BPFISH [29] | Consortium blockchain | Differential privacy | No | Not evaluated | None | No ZKP; no anonymity |",
+   "| FabricFL [25] | Hyperledger Fabric | None at gradient level | No | Fabric channels | None | No gradient-level privacy |",
+   "| FedBlockHealth [30] | Blockchain + sidechains | None | No | Sidechains | Partial | No cryptographic privacy |",
+   "| FLHealthChain (ours) | Hyperledger Fabric 3.1 (BFT + Raft channels) | DP-SGD (RDP-accounted) + LSAG | Yes (Groth16 norm-bound proof) | Per-domain channels; ~1.3 KB on-chain per update | FHIR R4 data model | Proving cost; trusted setup; single-host evaluation; synthetic data |"
+  ]
+ ],
+ "TABLE2": [
+  "Table 2: Threat\u2013defence mapping in FLHealthChain",
+  [
+   "| Threat | Vulnerability | Defence mechanism | Security property |",
+   "|---|---|---|---|",
+   "| Gradient inversion | Updates expose record-level features | DP-SGD with per-example clipping and Gaussian noise; per-hospital \u03c3\u1d62 from RDP accountant | Record-level (\u03b5, \u03b4)-DP (Theorem 1) |",
+   "| Model poisoning (scaling) | An oversized update dominates the aggregate | Update clipping plus Groth16 norm-bound proof verified by the MVC | Bounded update influence (Theorem 2) |",
+   "| Identity disclosure | Submissions traceable to hospitals | LSAG ring signature over all hospital keys; shared submitter identity | Signer anonymity (Theorem 3) |",
+   "| Double / Sybil submission | One hospital submits several updates per round | Key-image freshness check per (ring, round) | Linkability (Theorem 3) |",
+   "| Ledger tampering / forks | Byzantine orderers equivocate | SmartBFT ordering with n\u2080 \u2265 3f\u2080 + 1; MAJORITY endorsement | Safety and liveness (Theorem 4) |",
+   "| Replay / MITM | Interception or replay of messages | Mutual TLS; Fabric transaction-ID uniqueness | Confidentiality in transit; replay protection |",
+   "| Unauthorised data use | Records used without consent | Consent Management Contract; revocation events | Auditable consent state |",
+   "| GDPR right to erasure | Released models retain past contributions | Revocation excludes future use; DP bounds residual influence | Partial; full erasure needs unlearning (Section 9.2) |"
+  ]
+ ],
+ "TABLE3": [
+  "Table 3: System configuration and implementation environment (all components executed)",
+  [
+   "| Component | Specification / version |",
+   "|---|---|",
+   "| Host | Single cloud VM, 2 vCPU (x86-64), 8 GB RAM, Linux |",
+   "| Blockchain | Hyperledger Fabric 3.1.1 native binaries; 4 orderer nodes (7 in scaling run), 4 peer organisations \u00d7 1 peer |",
+   "| Channels | bft4: SmartBFT; raft4: etcdraft; BatchTimeout 500 ms, MaxMessageCount 500, PreferredMaxBytes 2 MB |",
+   "| Endorsement policy | MAJORITY (3 of 4 organisations) |",
+   "| Chaincode | Go 1.24, fabric-contract-api-go v2.2, chaincode-as-a-service |",
+   "| zk-SNARK | gnark v0.13.0, Groth16 over BN254, MiMC commitment, lookup range checks |",
+   "| Ring signature | LSAG over secp256k1 (decred secp256k1 v4.4) |",
+   "| Client / load generator | Fabric Gateway SDK v1.7.1 (Go), closed loop |",
+   "| Federated learning | Python 3, NumPy; exact per-example gradients; Poisson subsampling |",
+   "| Privacy accountant | Google dp_accounting (RDP, subsampled Gaussian) |",
+   "| Data | Synthea (3 runs, seeds 2026\u20132028, Massachusetts, ages 45\u201390), landmark cohort |",
+   "| Off-chain storage | Content-addressed local store (IPFS in reference design) |"
+  ]
+ ]
+}
